@@ -1,5 +1,5 @@
 # ワークフロー名
-name: test_chatbot
+name: gomi_bot
 
 # 発火タイミング
 # 日本時刻の朝7時に定期処理(分 時 日 月 曜日)
@@ -7,9 +7,9 @@ name: test_chatbot
 # 曜日指定には [0, 6] の整数を使います。 0 が日曜日、 6 が土曜日です。
 # 実はgithub actionsのcronの時刻はUTCなので、日本時間に合わせるために日本時刻から9時間マイナスで設定する必要があります。
 on:
-  push:
-#  schedule:
-#    - cron: '0 22 * * *'
+#  push:
+  schedule:
+  - cron: '0 22 * * *'
 
 jobs:
   build:
