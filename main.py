@@ -11,8 +11,8 @@ line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
 
 def main():
     USER_ID = info["USER_ID"]
-    today = datetime.date.today()
-    tomorrow = datetime.date.today() + datetime.timedelta(days = 1)
+    today = datetime.date.today() + datetime.timedelta(hours = 9)
+    tomorrow = datetime.date.today() + datetime.timedelta(days = 1) + datetime.timedelta(hours = 9)
     #-------------------------------
     #月曜日、木曜日は燃えるゴミの日
     #火曜日はプラスティックの日
