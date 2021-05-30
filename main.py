@@ -12,6 +12,7 @@ line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
 def main():
     USER_ID = info["USER_ID"]
     today = datetime.date.today()
+    tomorrow = datetime.date.today() + datetime.timedelta(days = 1)
     #-------------------------------
     #月曜日、木曜日は燃えるゴミの日
     #火曜日はプラスティックの日
@@ -59,8 +60,10 @@ def main():
     for k, v in youbi.items():
         if k == today.strftime("%A"):
             today_youbi = v
+        if k == tomorrow.strftime("%A"):
+            tomorrow_youbi = v
 
-    str_message = str("今日({}月{}日({}))は{}です。\n明日は{}です。".format(today.month, today.day, today_youbi, gomi_info, gomi_tomorrow_info))
+    str_message = str("今日({}月{}日({}))は{}です。\n明日({}月{}日({}))は{}です。".format(today.month, today.day, today_youbi, gomi_info, tomorrow.month, tomorrow.day, tomorrow_youbi, gomi_tomorrow_info))
     messages = TextSendMessage(text = str_message)
     line_bot_api.push_message(USER_ID, messages = messages)
 
