@@ -65,7 +65,8 @@ def main():
 
     str_message = str("今日({}月{}日({}))は{}です。\n明日({}月{}日({}))は{}です。".format(today.month, today.day, today_youbi, gomi_info, tomorrow.month, tomorrow.day, tomorrow_youbi, gomi_tomorrow_info))
     messages = TextSendMessage(text = str_message)
-    line_bot_api.push_message(USER_ID, messages = messages)
+    #line_bot_api.push_message(USER_ID, messages = messages)
+    line_bot_api.broadcast(messages = messages)
 
 if __name__ == "__main__":
     main()
