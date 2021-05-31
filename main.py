@@ -21,9 +21,9 @@ def main():
     #通常の日の処理
     if today.strftime("%A") == "Monday":
         gomi_info = "燃えるゴミの日"
-        gomi_tomorrow_info = "プラスティックの日"
+        gomi_tomorrow_info = "プラスチックの日"
     elif today.strftime("%A") == "Tuesday":
-        gomi_info = "プラスティックの日"
+        gomi_info = "プラスチックの日"
         if (today.day - 1) // 7 != (0 or 2):#第一と第三週
             gomi_tomorrow_info = "ビン・缶等出せる日"
         else:
