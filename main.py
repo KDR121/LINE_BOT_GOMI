@@ -11,8 +11,8 @@ line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
 
 def main():
     USER_ID = info["USER_ID"]
-    today = datetime.date.today() + datetime.timedelta(hours = 9)
-    tomorrow = datetime.date.today() + datetime.timedelta(days = 1) + datetime.timedelta(hours = 9)
+    today = datetime.datetime.today() + datetime.timedelta(hours = 9)
+    tomorrow = datetime.datetime.today() + datetime.timedelta(days = 1) + datetime.timedelta(hours = 9)
     #-------------------------------
     #月曜日、木曜日は燃えるゴミの日
     #火曜日はプラスティックの日
@@ -63,7 +63,7 @@ def main():
         if k == tomorrow.strftime("%A"):
             tomorrow_youbi = v
 
-    str_message = str("今日({}月{}日({}))は{}です。\n明日({}月{}日({}))は{}です。".format(today.hour, today.day, today_youbi, gomi_info, tomorrow.month, tomorrow.day, tomorrow_youbi, gomi_tomorrow_info))
+    str_message = str("今日({}月{}日({}))は{}です。\n明日({}月{}日({}))は{}です。".format(today, today.day, today_youbi, gomi_info, tomorrow.month, tomorrow.day, tomorrow_youbi, gomi_tomorrow_info))
     messages = TextSendMessage(text = str_message)
     line_bot_api.push_message(USER_ID, messages = messages)
     #line_bot_api.broadcast(messages = messages)
