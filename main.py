@@ -35,7 +35,7 @@ def main():
             gomi_info = "何もない日"
         gomi_tomorrow_info = "燃えるゴミの日"
     elif today.strftime("%A") == "Thursday":
-        gomi_info = "何もない日"
+        gomi_info = "燃えるゴミの日"
         gomi_tomorrow_info = "何もない日"
     elif today.strftime("%A") == "Friday":
         gomi_info = "何もない日"
