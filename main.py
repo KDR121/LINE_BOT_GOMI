@@ -24,12 +24,12 @@ def main():
         gomi_tomorrow_info = "プラスチックの日"
     elif today.strftime("%A") == "Tuesday":
         gomi_info = "プラスチックの日"
-        if (tomorrow.day - 1) // 7 != (0 or 2):#第一と第三週
+        if (tomorrow.day - 1) // 7 == 0 or (tomorrow.day - 1) // 7 == 2:#第一と第三週
             gomi_tomorrow_info = "ビン・缶等出せる日"
         else:
             gomi_tomorrow_info = "何もない日"
     elif today.strftime("%A") == "Wednesday":
-        if (today.day - 1) // 7 != (0 or 2):#第一と第三週
+        if (today.day - 1) // 7 == 0 or (today.day - 1) // 7 == 2:#第一と第三週
             gomi_info = "ビン・缶等出せる日"
         else:
             gomi_info = "何もない日"
