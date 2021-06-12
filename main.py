@@ -62,11 +62,21 @@ def main():
             today_youbi = v
         if k == tomorrow.strftime("%A"):
             tomorrow_youbi = v
-
-    str_message = str("今日({}月{}日({}))は{}です。\n明日({}月{}日({}))は{}です。".format(today.month, today.day, today_youbi, gomi_info, tomorrow.month, tomorrow.day, tomorrow_youbi, gomi_tomorrow_info))
-    messages = TextSendMessage(text = str_message)
-    #line_bot_api.push_message(USER_ID, messages = messages)
-    line_bot_api.broadcast(messages = messages)
+    
+    str_message = ""
+    if gomi_info != "何もない日":
+        if gomi_tomorrow_info != "何もない日":
+            str_message = str("今日({}月{}日({}))は{}です。\n明日({}月{}日({}))は{}です。".format(today.month, today.day, today_youbi, gomi_info, tomorrow.month, tomorrow.day, tomorrow_youbi, gomi_tomorrow_info))
+        else:
+            str_message = str("今日({}月{}日({}))は{}です。".format(today.month, today.day, today_youbi, gomi_info))
+    else:
+        if gomi_tomorrow_info != "何もない日":
+            str_message = str("明日({}月{}日({}))は{}です。".format(tomorrow.month, tomorrow.day, tomorrow_youbi, gomi_tomorrow_info))
+            
+    if str_message != "":
+        messages = TextSendMessage(text = str_message)
+        #line_bot_api.push_message(USER_ID, messages = messages)
+        line_bot_api.broadcast(messages = messages)
 
 if __name__ == "__main__":
     main()
